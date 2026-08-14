@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { GoogleGenAI } from '@google/genai';
-import connectDB from './config/db.js';
+import connectDB from './db.js';
 
 // 1. Load environment variables first
 dotenv.config({ path: './.env' });
