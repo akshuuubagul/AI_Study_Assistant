@@ -12,7 +12,14 @@ const app = express();
 // 2. Initialize database connection
 connectDB();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://aistudyassistant-beige.vercel.app'
+  ],
+  methods: ['GET', 'POST'],
+  credentials: true
+}))
 app.use(express.json());
 
 // 3. Initialize the official Google Gen AI SDK client
