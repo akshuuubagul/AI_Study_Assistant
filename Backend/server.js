@@ -15,11 +15,14 @@ connectDB();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://aistudyassistant-beige.vercel.app'
+    'https://aistudyassistant-beige.vercel.app',
+    'https://aistudyassistant-git-main-ai-study-assistant3.vercel.app',
+    'https://aistudyassistant-fx2j1p1zs-ai-study-assistant3.vercel.app'
   ],
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
-}))
+}));
 app.use(express.json());
 
 // 3. Initialize the official Google Gen AI SDK client
@@ -58,8 +61,10 @@ app.post('/ask', async (req, res) => {
 });
 
 // 6. Bind to port
-app.listen(5000, () => {
-  console.log('🚀 Server running on http://localhost:5000');
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
 
 // import express from 'express';
