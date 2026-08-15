@@ -11,6 +11,7 @@ export default function Chat({ setPage }) {
     setLoading(true);
 
     try {
+      // Production backend
       const response = await fetch('https://ai-study-assistant-1zhh.onrender.com/ask', {
         method: 'POST',
         headers: {
